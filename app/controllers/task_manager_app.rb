@@ -16,6 +16,11 @@ class TaskManagerApp < Sinatra::Base
   # erb :index
   # end
 
+  get '/tasks' do
+    @tasks = Task.all
+    erb :index
+  end
+
   post '/tasks' do
     task = Task.new(params[:task])
     task.save
